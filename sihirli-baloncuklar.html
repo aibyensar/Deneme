@@ -1,0 +1,220 @@
+<title>Sihirli Baloncuklar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap">
+<style>
+/* Layout: tam ekran gökyüzü; baloncuklar aşağıdan yükselir. Üstte görev baloncuğu ve yıldız sayacı. Başlangıçta 4 büyük konu düğmesi. Tek, aydınlık tema. */
+:root {
+  --sky1: #bfe6ff;
+  --sky2: #ffe3f1;
+  --ink: #3b2a5c;
+  --star: #ffc93c;
+  --card: rgba(255,255,255,.88);
+  --f: "Baloo 2", "Comic Sans MS", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; background: linear-gradient(180deg, var(--sky1), var(--sky2)); color: var(--ink); font-family: var(--f); user-select: none; -webkit-user-select: none; touch-action: none; }
+#c { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+.top { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); pointer-events: none; }
+.pill { background: var(--card); border-radius: 99px; padding: 4px 14px; font-weight: 800; font-size: 1.4rem; display: flex; align-items: center; gap: 6px; }
+.pill b { color: var(--star); text-shadow: 0 1px 0 #c98f00; }
+.side { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.side button { pointer-events: auto; background: var(--card); border: 0; border-radius: 99px; padding: 6px 12px; font: 600 .85rem var(--f); color: var(--ink); cursor: pointer; }
+#task { pointer-events: auto; cursor: pointer; background: var(--card); border-radius: 22px; padding: 6px 14px 6px 8px; display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.15rem; }
+#task canvas { width: 54px; height: 54px; }
+.start, .parent { position: fixed; inset: 0; display: grid; place-items: center; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.menu { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: min(380px, 100%); }
+.menu h1 { grid-column: 1 / -1; text-align: center; margin: 0 0 4px; font-size: 2rem; line-height: 1.1; text-wrap: balance; }
+.menu button { font: 800 1.3rem var(--f); color: #fff; border: 0; border-radius: 26px; padding: 18px 8px 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; box-shadow: 0 7px 0 rgba(0,0,0,.18); }
+.menu button span { font-size: 2.6rem; line-height: 1; }
+.menu button:active { transform: translateY(4px); box-shadow: 0 3px 0 rgba(0,0,0,.18); }
+.menu button:focus-visible, .side button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.m-hayvan { background: #ff8a5b; } .m-renk { background: #b06cf0; } .m-sayi { background: #3fb6e8; } .m-sekil { background: #45c486; }
+.parent { background: rgba(59,42,92,.35); }
+.parent form { background: #fff; border-radius: 20px; padding: 20px; width: min(340px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.parent h2 { margin: 0; font-size: 1.3rem; }
+.parent p { margin: 0; font-size: .95rem; opacity: .8; line-height: 1.35; }
+.parent input { font: 600 1.2rem var(--f); padding: 10px 12px; border-radius: 12px; border: 2px solid #d9cdee; color: var(--ink); background: #fff; }
+.parent button { font: 800 1.1rem var(--f); padding: 10px; border-radius: 12px; border: 0; background: var(--ink); color: #fff; cursor: pointer; }
+@media (prefers-reduced-motion: no-preference) { .menu button { animation: bob 2.2s ease-in-out infinite; } .menu button:nth-of-type(2) { animation-delay: .3s; } .menu button:nth-of-type(3) { animation-delay: .6s; } .menu button:nth-of-type(4) { animation-delay: .9s; } }
+@keyframes bob { 50% { transform: translateY(-6px); } }
+</style>
+
+<canvas id="c"></canvas>
+<div class="top" id="top" hidden>
+  <div id="task" role="button" aria-label="Görevi tekrar dinle"><canvas id="tc" width="108" height="108"></canvas><span id="tt">Bul!</span></div>
+  <div class="side"><div class="pill">⭐ <b id="n">0</b></div><button id="home">Konular</button></div>
+</div>
+<div class="start" id="start">
+  <div class="menu">
+    <h1>Ne öğrenelim?</h1>
+    <button class="m-hayvan" data-m="hayvan"><span>🐱</span>Hayvanlar</button>
+    <button class="m-renk" data-m="renk"><span>🎨</span>Renkler</button>
+    <button class="m-sayi" data-m="sayi"><span>🔢</span>Sayılar</button>
+    <button class="m-sekil" data-m="sekil"><span>🔺</span>Şekiller</button>
+    <button class="m-renk" data-m="ebeveyn" style="grid-column:1/-1;background:#fff;color:#3b2a5c;font-size:1rem;padding:10px;animation:none"><span style="font-size:1.2rem">👤</span>Ebeveyn: çocuğun adı</button>
+  </div>
+</div>
+<div class="parent" id="parent" hidden>
+  <form id="pform">
+    <h2>Çocuğun adı</h2>
+    <p>Oyun onu adıyla selamlar ve her 5 doğru cevapta adıyla över. Boş bırakırsan “Aferin sana!” der.</p>
+    <input id="kid" maxlength="20" placeholder="Örn. Elif" autocomplete="off">
+    <button type="submit">Tamam</button>
+  </form>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const cv = $('c'), x = cv.getContext('2d');
+  let W, H, dpr;
+  const fit = () => { dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  addEventListener('resize', fit); fit();
+
+  // ---------- Öğrenme içerikleri ----------
+  const SAYI_AD = ['', 'Bir', 'İki', 'Üç', 'Dört', 'Beş', 'Altı', 'Yedi', 'Sekiz', 'Dokuz', 'On'];
+  const SETS = {
+    hayvan: [['🐱', 'Kedi', 'Miyav'], ['🐶', 'Köpek', 'Hav hav'], ['🐮', 'İnek', 'Mööö'], ['🐸', 'Kurbağa', 'Vrak vrak'], ['🐥', 'Civciv', 'Cik cik'], ['🦁', 'Aslan', 'Kükreee'], ['🐑', 'Koyun', 'Meee'], ['🦆', 'Ördek', 'Vak vak'], ['🐴', 'At', 'İhaha'], ['🐘', 'Fil', 'Pıııı'], ['🐰', 'Tavşan', 'Hop hop'], ['🐻', 'Ayı', 'Hıııım']]
+      .map(([e, ad, ses]) => ({ id: ad, kind: 'emoji', e, say: `${ad}! ${ses}!`, label: ad, hue: 30 })),
+    renk: [['Kırmızı', 0, 85, 55], ['Turuncu', 28, 95, 55], ['Sarı', 50, 100, 52], ['Yeşil', 125, 60, 45], ['Mavi', 215, 85, 55], ['Mor', 280, 60, 55], ['Pembe', 330, 90, 72]]
+      .map(([ad, h, s, l]) => ({ id: ad, kind: 'color', col: `hsl(${h},${s}%,${l}%)`, say: `${ad}!`, label: ad, hue: h })),
+    sayi: Array.from({ length: 10 }, (_, i) => i + 1).map(n => ({ id: String(n), kind: 'num', n, say: `${SAYI_AD[n]}!`, label: SAYI_AD[n], hue: 200 })),
+    sekil: [['Daire', 'circle', 200], ['Kare', 'square', 130], ['Üçgen', 'tri', 30], ['Yıldız', 'star', 48], ['Kalp', 'heart', 340], ['Dikdörtgen', 'rect', 270]]
+      .map(([ad, s, h]) => ({ id: ad, kind: 'shape', s, say: `${ad}!`, label: ad, hue: h }))
+  };
+  // Türkçe ünlü uyumuyla belirtme eki: Kediyi, Aslanı, Ördeği, Kuşu...
+  function accus(w) {
+    const EX = { 'Dört': 'Dördü', 'Kalp': 'Kalbi' }; if (EX[w]) return EX[w];
+    const v = [...w.toLocaleLowerCase('tr')].reverse().find(c => 'aeıioöuü'.includes(c)), lastV = 'aeıioöuü'.includes(w.slice(-1).toLocaleLowerCase('tr'));
+    const suf = { a: 'ı', ı: 'ı', e: 'i', i: 'i', o: 'u', u: 'u', ö: 'ü', ü: 'ü' }[v] || 'i';
+    let base = w; const end = w.slice(-1);
+    if (!lastV && 'kç'.includes(end) && w.length > 2) base = w.slice(0, -1) + (end === 'k' ? 'ğ' : 'c');
+    return base + (lastV ? 'y' : '') + suf;
+  }
+  const askOf = it => `${accus(it.label)} bul!`;
+
+  // ---------- Ses ----------
+  let ac = null, voice = null;
+  function tone(f, d, type = 'sine', v = .2) { if (!ac) return; const o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime; o.type = type; o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * 1.8, t + d); g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(.0001, t + d); o.connect(g).connect(ac.destination); o.start(t); o.stop(t + d); }
+  const popSound = () => { tone(500 + Math.random() * 400, .12); setTimeout(() => tone(900 + Math.random() * 500, .1, 'triangle', .12), 40); };
+  const fanfare = () => [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => tone(f, .25, 'triangle', .15), i * 120));
+  const soft = () => tone(260, .2, 'sine', .1);
+  function pickVoice() { try { voice = speechSynthesis.getVoices().find(v => /^tr/i.test(v.lang)) || null; } catch (e) {} }
+  try { speechSynthesis.onvoiceschanged = pickVoice; pickVoice(); } catch (e) {}
+  function say(t) { try { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'tr-TR'; if (voice) u.voice = voice; u.rate = .88; u.pitch = 1.3; speechSynthesis.speak(u); } catch (e) {} }
+
+  // ---------- Çizim yardımcıları ----------
+  function shapePath(c, s, cx, cy, r) {
+    c.beginPath();
+    if (s === 'circle') c.arc(cx, cy, r, 0, 6.283);
+    else if (s === 'square') c.rect(cx - r * .85, cy - r * .85, r * 1.7, r * 1.7);
+    else if (s === 'rect') c.rect(cx - r, cy - r * .6, r * 2, r * 1.2);
+    else if (s === 'tri') { c.moveTo(cx, cy - r); c.lineTo(cx + r * .95, cy + r * .75); c.lineTo(cx - r * .95, cy + r * .75); c.closePath(); }
+    else if (s === 'star') { for (let i = 0; i < 10; i++) { const rr = i % 2 ? r * .45 : r, a = -Math.PI / 2 + i * Math.PI / 5; c.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); } c.closePath(); }
+    else if (s === 'heart') { c.moveTo(cx, cy + r * .85); c.bezierCurveTo(cx - r * 1.3, cy, cx - r * .6, cy - r * 1.1, cx, cy - r * .4); c.bezierCurveTo(cx + r * .6, cy - r * 1.1, cx + r * 1.3, cy, cx, cy + r * .85); }
+  }
+  function drawItem(c, it, cx, cy, r) {
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    if (it.kind === 'emoji') { c.font = `${r * 1.15}px system-ui`; c.fillText(it.e, cx, cy + r * .06); }
+    else if (it.kind === 'color') { c.fillStyle = it.col; c.beginPath(); c.arc(cx, cy, r * .78, 0, 6.283); c.fill(); }
+    else if (it.kind === 'shape') { c.fillStyle = `hsl(${it.hue},80%,55%)`; shapePath(c, it.s, cx, cy, r * .7); c.fill(); c.strokeStyle = '#3b2a5c'; c.lineWidth = Math.max(2, r * .06); c.stroke(); }
+    else if (it.kind === 'num') {
+      c.fillStyle = '#3b2a5c'; c.font = `800 ${r * .95}px "Baloo 2", system-ui`; c.fillText(it.n, cx, cy - r * .12);
+      // sayıyı noktalarla da göster: miktar kavramı
+      const per = Math.min(5, it.n), rows = Math.ceil(it.n / 5), dr = r * .085;
+      for (let k = 0; k < it.n; k++) { const row = Math.floor(k / 5), col = k % 5, inRow = row === rows - 1 ? it.n - row * 5 : per;
+        c.fillStyle = '#ff6fa8'; c.beginPath(); c.arc(cx + (col - (inRow - 1) / 2) * dr * 2.6, cy + r * .5 + row * dr * 2.6, dr, 0, 6.283); c.fill(); }
+    }
+  }
+
+  // ---------- Oyun durumu ----------
+  const bubbles = [], bits = [], pops = [];
+  let mode = null, target = null, stars = 0, streak = 0, kid = '', running = false, last = 0;
+  try { kid = localStorage.getItem('kid') || ''; } catch (e) {}
+
+  function newTarget() {
+    const set = SETS[mode]; let t; do { t = set[Math.random() * set.length | 0]; } while (target && t.id === target.id && set.length > 1);
+    target = t; drawTask(); setTimeout(() => say(askOf(target)), 350);
+    // hedefin ekranda mutlaka olsun
+    if (!bubbles.some(b => b.it.id === target.id)) spawn(true);
+  }
+  function drawTask() {
+    const tc = $('tc'), c = tc.getContext('2d'); c.clearRect(0, 0, 108, 108);
+    c.fillStyle = '#fff'; c.beginPath(); c.arc(54, 54, 52, 0, 6.283); c.fill();
+    drawItem(c, target, 54, 54, 44); $('tt').textContent = target.label + ' nerede?';
+  }
+  function spawn(forceTarget) {
+    const set = SETS[mode], r = 42 + Math.random() * 22;
+    const it = target && (forceTarget || Math.random() < .35) ? target : set[Math.random() * set.length | 0];
+    bubbles.push({ x: r + Math.random() * Math.max(1, W - 2 * r), y: H + r, r, vy: .5 + Math.random() * .55, ph: Math.random() * 6.28, it });
+  }
+  function burst(bx, by, hue, n = 18) { for (let k = 0; k < n; k++) { const an = Math.random() * 6.28, sp = 2 + Math.random() * 4; bits.push({ x: bx, y: by, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp, life: 1, hue, s: 3 + Math.random() * 5 }); } }
+
+  function hit(px, py) {
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      const b = bubbles[i], bx = b.x + Math.sin(b.ph) * 12;
+      if (Math.hypot(px - bx, py - b.y) >= b.r + 18) continue;
+      bubbles.splice(i, 1); popSound(); burst(bx, b.y, b.it.hue);
+      pops.push({ x: bx, y: b.y, it: b.it, t: 0, ok: b.it.id === target.id });
+      if (b.it.id === target.id) {
+        stars++; streak++; $('n').textContent = stars;
+        if (streak % 5 === 0) { fanfare(); say(kid ? `Aferin ${kid}! Harikasın!` : 'Aferin sana! Harikasın!'); for (let k = 0; k < 40; k++) bits.push({ x: W / 2, y: H * .4, vx: (Math.random() - .5) * 12, vy: (Math.random() - .8) * 10, life: 1.4, hue: 45, s: 6, star: true }); setTimeout(newTarget, 1900); }
+        else { say(`Evet! ${b.it.say}`); setTimeout(newTarget, 1400); }
+      } else {
+        // yanlışta ceza yok: ne olduğunu öğretir, görevi hatırlatır
+        soft(); say(`Bu ${b.it.label.toLocaleLowerCase('tr')}. ${askOf(target)}`);
+      }
+      return;
+    }
+  }
+
+  let lastF = 0;
+  function frame(t) {
+    x.clearRect(0, 0, W, H);
+    if (running && t - last > 900 && bubbles.length < 8) { spawn(); last = t; }
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      const b = bubbles[i]; b.y -= b.vy; b.ph += .02; const bx = b.x + Math.sin(b.ph) * 12;
+      if (b.y < -b.r - 10) { bubbles.splice(i, 1); if (running && target && b.it.id === target.id && !bubbles.some(o => o.it.id === target.id)) spawn(true); continue; }
+      const g = x.createRadialGradient(bx - b.r * .35, b.y - b.r * .35, b.r * .1, bx, b.y, b.r);
+      g.addColorStop(0, 'rgba(255,255,255,.98)'); g.addColorStop(.6, 'rgba(255,255,255,.55)'); g.addColorStop(1, `hsla(${b.it.hue},80%,75%,.7)`);
+      x.fillStyle = g; x.beginPath(); x.arc(bx, b.y, b.r, 0, 6.283); x.fill();
+      x.strokeStyle = 'rgba(255,255,255,.95)'; x.lineWidth = 2.5; x.stroke();
+      drawItem(x, b.it, bx, b.y, b.r * .82);
+    }
+    for (let i = pops.length - 1; i >= 0; i--) {
+      const p = pops[i]; p.t += .016; if (p.t > 1.6) { pops.splice(i, 1); continue; }
+      const s = Math.min(1, p.t * 4), al = p.t > 1.1 ? 1 - (p.t - 1.1) / .5 : 1;
+      x.globalAlpha = al; drawItem(x, p.it, p.x, p.y - p.t * 30, 46 * s);
+      x.font = `800 ${28 * s}px "Baloo 2", system-ui`; x.fillStyle = p.ok ? '#1f9d55' : '#3b2a5c'; x.textAlign = 'center';
+      x.fillText((p.ok ? '✓ ' : '') + p.it.label, p.x, p.y + 64 * s - p.t * 30); x.globalAlpha = 1;
+    }
+    for (let i = bits.length - 1; i >= 0; i--) {
+      const b = bits[i]; b.x += b.vx; b.y += b.vy; b.vy += .15; b.life -= .02; if (b.life <= 0) { bits.splice(i, 1); continue; }
+      x.fillStyle = `hsla(${b.hue},95%,60%,${Math.min(1, b.life)})`;
+      if (b.star) { shapePath(x, 'star', b.x, b.y, b.s * 1.6); x.fill(); } else { x.beginPath(); x.arc(b.x, b.y, b.s, 0, 6.283); x.fill(); }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // ---------- Kontroller ----------
+  cv.addEventListener('pointerdown', e => { if (running && target) hit(e.clientX, e.clientY); });
+  $('task').addEventListener('click', () => target && say(askOf(target)));
+  document.querySelectorAll('.menu button').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.m === 'ebeveyn') { $('kid').value = kid; $('parent').hidden = false; return; }
+    try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+    mode = b.dataset.m; bubbles.length = 0; streak = 0; target = null; running = true;
+    $('start').hidden = true; $('top').hidden = false;
+    for (let i = 0; i < 5; i++) { spawn(); bubbles[bubbles.length - 1].y = H * (.35 + i * .13); }
+    say(kid ? `Merhaba ${kid}!` : 'Merhaba!'); setTimeout(newTarget, 900);
+  }));
+  $('home').addEventListener('click', () => { running = false; bubbles.length = 0; $('top').hidden = true; $('start').hidden = false; try { speechSynthesis.cancel(); } catch (e) {} });
+  $('pform').addEventListener('submit', e => { e.preventDefault(); kid = $('kid').value.trim(); try { localStorage.setItem('kid', kid); } catch (er) {} $('parent').hidden = true; });
+
+  // açılışta arka planda süzülen örnek baloncuklar
+  mode = 'hayvan'; target = SETS.hayvan[0]; for (let i = 0; i < 5; i++) { spawn(); bubbles[i].y = H * (.25 + i * .15); }
+  setInterval(() => { if (!running && bubbles.length < 6) spawn(); }, 1400);
+})();
+</script>
