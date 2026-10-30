@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AGY Mühendislik | Ensar Özsarı · Elektrik Proje ve Tesisat</title>
-<meta name="description" content="Manisa ve İzmir'de elektrik proje çizimi, kesit ve gerilim düşümü hesabı, kompanzasyon, aydınlatma, güneş enerjisi (GES), şarj istasyonu ve elektrik tesisat taahhüt hizmetleri.">
+<title>AGY Enerji Mühendislik | Ensar Özsarı · Elektrik Proje ve Tesisat</title>
+<meta name="description" content="Manisa ve İzmir'de trafo işleri, trafo işletme sorumluluğu, elektrik proje çizimi, kesit ve gerilim düşümü hesabı, kompanzasyon, aydınlatma, güneş enerjisi (GES), şarj istasyonu ve elektrik tesisat taahhüt hizmetleri.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
@@ -122,6 +122,9 @@
     background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--line);
     transition: transform .25s, box-shadow .25s;
   }
+  .svc.wide { grid-column: span 2; background: var(--ink); color: #fff; border-color: var(--ink); }
+  .svc.wide p { color: rgba(255, 255, 255, .78); }
+  .svc.wide h3 { font-size: 1.35rem; }
   .svc:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .icon { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 16px; color: #fff; }
   .svc h3 { margin: 0 0 8px; font-size: 1.2rem; }
@@ -145,7 +148,7 @@
     color: var(--muted); cursor: pointer; transition: .2s;
   }
   .filter.on { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .projects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .proj { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; }
   .proj:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .proj.hide { display: none; }
@@ -157,7 +160,7 @@
   .proj-body { padding: 22px; }
   .proj-body h3 { margin: 0 0 6px; font-size: 1.12rem; }
   .proj-body p { margin: 0; color: var(--muted); font-size: .95rem; }
-  .proj-meta { display: flex; gap: 14px; margin-top: 14px; font-size: .85rem; font-weight: 600; color: var(--purple); }
+  .proj-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; white-space: nowrap; margin-top: 14px; font-size: .85rem; font-weight: 600; color: var(--purple); }
 
   .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   .tl h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; }
@@ -220,6 +223,7 @@
     section { padding: 64px 0; }
     .hero { padding: 48px 0 70px; }
     .services, .projects, .row2 { grid-template-columns: 1fr; }
+    .svc.wide { grid-column: auto; }
     .about { margin: 0 8px; border-radius: 26px; }
     .contact-box { padding: 22px; border-radius: 26px; }
     form { padding: 20px; }
@@ -238,7 +242,7 @@
       <span class="logo-mark">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#1b1640"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
       </span>
-      AGY Mühendislik
+      AGY Enerji Mühendislik
     </a>
     <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="menu">
@@ -258,7 +262,7 @@
       <div>
         <span class="badge"><span class="dot"></span> Manisa &amp; İzmir · tüm ilçeler</span>
         <h1>Elektriğiniz <span class="grad">güvenli, verimli</span> ve yönetmeliğe uygun olsun.</h1>
-        <p class="lead">AGY Mühendislik olarak konut, işyeri ve sanayi tesisleri için elektrik proje çizimi, hesaplar, kompanzasyon, güneş enerjisi ve şarj istasyonu kurulumu yapıyoruz. Projeden anahtar teslime kadar tek elden.</p>
+        <p class="lead">AGY Enerji Mühendislik olarak konut, işyeri ve sanayi tesisleri için trafo işleri ve trafo işletme sorumluluğu, elektrik proje çizimi, kompanzasyon, güneş enerjisi ve şarj istasyonu kurulumu yapıyoruz. Projeden anahtar teslime kadar tek elden.</p>
         <div class="btns">
           <a class="btn btn-main" href="#iletisim">Ücretsiz keşif iste ⚡</a>
           <a class="btn btn-ghost" href="#projeler">Projelerimi gör</a>
@@ -301,6 +305,20 @@
       <h2 class="reveal">Neler yapıyorum?</h2>
       <p class="sec-lead reveal">Her işi hesabıyla, çizimiyle ve uygulamasıyla baştan sona takip ediyorum.</p>
       <div class="services">
+        <article class="svc wide reveal">
+          <div class="icon" style="background:var(--yellow);color:var(--ink)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M7 7V4M12 7V3M17 7V4M13 10l-3 4h4l-3 4"/></svg>
+          </div>
+          <h3>Trafo İşleri</h3>
+          <p>Direk, bina ve köşk tipi trafo merkezleri: proje, OG hücreleri, kurulum, topraklama ve devreye alma. Kapasite artışı ve trafo değişimi.</p>
+        </article>
+        <article class="svc wide reveal">
+          <div class="icon" style="background:var(--green)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4h6l1 3H8l1-3zM6 7h12v14H6zM9 12l2 2 4-4M9 17h6"/></svg>
+          </div>
+          <h3>Trafo İşletme Sorumluluğu</h3>
+          <p>Trafo merkeziniz için yönetmeliğe uygun işletme sorumlusu hizmeti: periyodik kontroller, bakım planı, ölçümler, kayıt ve raporlama.</p>
+        </article>
         <article class="svc reveal">
           <div class="icon" style="background:var(--orange)">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg>
@@ -367,11 +385,13 @@
       <div class="reveal">
         <div class="eyebrow">Hakkımda</div>
         <h2>Merhaba, ben Ensar Özsarı 👋</h2>
-        <p>Elektrik mühendisiyim. 2018'de Kocaeli Üniversitesi'nden mezun oldum ve 2019'da AGY Mühendislik'i kurdum. 7 yıldır Manisa ve İzmir'de konut, ticari bina ve sanayi tesislerinin elektrik projelerini çiziyor, hesaplarını yapıyor ve sahada uygulamasını yönetiyorum. Bugüne kadar 1000'den fazla projeyi tamamladım.</p>
+        <p>Elektrik mühendisiyim. 2018'de Kocaeli Üniversitesi'nden mezun oldum ve 2019'da AGY Enerji Mühendislik'i kurdum. 7 yıldır Manisa ve İzmir'de konut, ticari bina ve sanayi tesislerinin elektrik ve trafo projelerini çiziyor, hesaplarını yapıyor ve sahada uygulamasını yönetiyorum. Bugüne kadar 1000'den fazla projeyi tamamladım.</p>
         <p>Benim için iyi bir proje; güvenli, yönetmeliğe uygun ve uzun vadede işletme maliyetini düşüren projedir. Her müşteriye işin her aşamasını açıkça anlatırım.</p>
         <div class="chips">
           <span class="chip">AutoCAD</span>
           <span class="chip">Dialux</span>
+          <span class="chip">Trafo Merkezleri</span>
+          <span class="chip">İşletme Sorumluluğu</span>
           <span class="chip">Kompanzasyon</span>
           <span class="chip">OG / AG</span>
           <span class="chip">Topraklama</span>
@@ -390,12 +410,35 @@
       <p class="sec-lead reveal">Manisa ve İzmir genelinde, küçük bir daireden fabrikaya kadar her ölçekte proje ve uygulama.</p>
       <div class="filters reveal">
         <button class="filter on" data-f="hepsi">Hepsi</button>
+        <button class="filter" data-f="trafo">Trafo</button>
         <button class="filter" data-f="konut">Konut</button>
         <button class="filter" data-f="ticari">Ticari</button>
         <button class="filter" data-f="sanayi">Sanayi</button>
         <button class="filter" data-f="enerji">Enerji</button>
       </div>
       <div class="projects">
+        <article class="proj reveal" data-k="trafo">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--ink),var(--purple))">
+            <span class="tag">Trafo</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M7 7V4M12 7V3M17 7V4M13 10l-3 4h4l-3 4"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Trafo Merkezleri</h3>
+            <p>Direk, bina ve köşk tipi trafo merkezi projesi, kurulumu ve devreye alınması.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
+        <article class="proj reveal" data-k="trafo">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--purple),var(--pink))">
+            <span class="tag">Trafo</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4h6l1 3H8l1-3zM6 7h12v14H6zM9 12l2 2 4-4M9 17h6"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Trafo İşletme Sorumluluğu</h3>
+            <p>Sanayi ve ticari tesislerin trafo merkezleri için düzenli kontrol, bakım ve raporlama.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
         <article class="proj reveal" data-k="konut">
           <div class="proj-top" style="background:linear-gradient(135deg,var(--orange),var(--pink))">
             <span class="tag">Konut</span>
@@ -476,13 +519,13 @@
           <h3>💼 Deneyim</h3>
           <div class="tl-item" style="--c:var(--orange)">
             <div class="tl-date">2019 – Günümüz</div>
-            <h4>Kurucu, Elektrik Mühendisi · AGY Mühendislik</h4>
-            <p>Elektrik proje, hesap ve taahhüt işleri; konut, ticari ve sanayi müşterileri.</p>
+            <h4>Kurucu, Elektrik Mühendisi · AGY Enerji Mühendislik</h4>
+            <p>Trafo işleri, trafo işletme sorumluluğu, elektrik proje, hesap ve taahhüt işleri.</p>
           </div>
           <div class="tl-item" style="--c:var(--pink)">
             <div class="tl-date">7 yılda</div>
             <h4>1000'den fazla proje</h4>
-            <p>Konut, işyeri, sanayi, güneş enerjisi ve şarj istasyonu projeleri.</p>
+            <p>Trafo merkezi, konut, işyeri, sanayi, güneş enerjisi ve şarj istasyonu projeleri.</p>
           </div>
           <div class="tl-item" style="--c:var(--purple)">
             <div class="tl-date">Hizmet bölgesi</div>
@@ -545,6 +588,8 @@
           </div>
           <label>Hizmet
             <select name="hizmet">
+              <option>Trafo işleri</option>
+              <option>Trafo işletme sorumluluğu</option>
               <option>Elektrik proje çizimi</option>
               <option>Kesit / gerilim düşümü hesabı</option>
               <option>Kompanzasyon</option>
@@ -565,7 +610,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yil"></span> AGY Mühendislik · Ensar Özsarı, Elektrik Mühendisi</div>
+  <div class="wrap">© <span id="yil"></span> AGY Enerji Mühendislik · Ensar Özsarı, Elektrik Mühendisi</div>
 </footer>
 
 <script>
