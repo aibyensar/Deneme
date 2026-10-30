@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adınız Soyadınız | Elektrik Proje ve Tesisat</title>
-<meta name="description" content="Elektrik proje çizimi, kesit ve gerilim düşümü hesabı, kompanzasyon, aydınlatma ve elektrik tesisat taahhüt hizmetleri.">
+<title>AGY Mühendislik | Ensar Özsarı · Elektrik Proje ve Tesisat</title>
+<meta name="description" content="Manisa ve İzmir'de elektrik proje çizimi, kesit ve gerilim düşümü hesabı, kompanzasyon, aydınlatma, güneş enerjisi (GES), şarj istasyonu ve elektrik tesisat taahhüt hizmetleri.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@
   h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 6px 0 14px; line-height: 1.15; letter-spacing: -.01em; }
   .sec-lead { color: var(--muted); max-width: 620px; margin: 0 0 44px; }
 
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .svc {
     background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--line);
     transition: transform .25s, box-shadow .25s;
@@ -182,6 +182,7 @@
   }
   .contact-list a:hover { transform: translateX(6px); }
   .contact-list .icon { width: 42px; height: 42px; border-radius: 12px; margin: 0; flex-shrink: 0; }
+  .contact-list a > span:last-child, .contact-list div > span:last-child { min-width: 0; overflow-wrap: anywhere; }
   .contact-list small { display: block; color: var(--muted); font-weight: 400; }
   form { background: #fff; border-radius: 24px; padding: 28px; display: grid; gap: 14px; box-shadow: var(--shadow); }
   label { font-weight: 600; font-size: .92rem; }
@@ -231,15 +232,13 @@
 </head>
 <body>
 
-<!-- Kendi bilgilerinizi yazmak için "Adınız Soyadınız", telefon, e-posta ve şehir yazan yerleri değiştirin. -->
-
 <header>
   <nav class="wrap">
     <a class="logo" href="#">
       <span class="logo-mark">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#1b1640"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
       </span>
-      Adınız Soyadınız
+      AGY Mühendislik
     </a>
     <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="menu">
@@ -257,17 +256,17 @@
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
     <div class="wrap hero-grid">
       <div>
-        <span class="badge"><span class="dot"></span> Yeni projeler için müsaitim</span>
+        <span class="badge"><span class="dot"></span> Manisa &amp; İzmir · tüm ilçeler</span>
         <h1>Elektriğiniz <span class="grad">güvenli, verimli</span> ve yönetmeliğe uygun olsun.</h1>
-        <p class="lead">Konut, işyeri ve sanayi tesisleri için elektrik proje çizimi, hesaplar, kompanzasyon, aydınlatma ve tesisat uygulaması. Projeden anahtar teslime kadar tek elden.</p>
+        <p class="lead">AGY Mühendislik olarak konut, işyeri ve sanayi tesisleri için elektrik proje çizimi, hesaplar, kompanzasyon, güneş enerjisi ve şarj istasyonu kurulumu yapıyoruz. Projeden anahtar teslime kadar tek elden.</p>
         <div class="btns">
           <a class="btn btn-main" href="#iletisim">Ücretsiz keşif iste ⚡</a>
           <a class="btn btn-ghost" href="#projeler">Projelerimi gör</a>
         </div>
         <div class="stats">
-          <div class="stat"><b data-count="10">0</b><span>yıllık deneyim</span></div>
-          <div class="stat"><b data-count="250">0</b><span>tamamlanan proje</span></div>
-          <div class="stat"><b data-count="100">0</b><span>% onaylanan dosya</span></div>
+          <div class="stat"><b data-count="7">0</b><span>yıllık deneyim</span></div>
+          <div class="stat"><b data-count="1000">0</b><span>tamamlanan proje</span></div>
+          <div class="stat"><b>2 il</b><span>tüm ilçelerinde hizmet</span></div>
         </div>
       </div>
 
@@ -344,17 +343,31 @@
           <h3>Topraklama &amp; Ölçüm</h3>
           <p>Topraklama, yalıtım ve paratoner ölçümleri; periyodik kontrol raporları.</p>
         </article>
+        <article class="svc reveal">
+          <div class="icon" style="background:var(--orange)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M12 1v1M5.6 3.6l.7.7M18.4 3.6l-.7.7M3 21l3-8h12l3 8H3zM9 13l-1 8M15 13l1 8M4.5 17h15"/></svg>
+          </div>
+          <h3>Güneş Enerjisi (GES)</h3>
+          <p>Çatı ve arazi tipi güneş santrali projesi, kurulumu ve şebeke bağlantı işlemleri.</p>
+        </article>
+        <article class="svc reveal">
+          <div class="icon" style="background:var(--purple)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="10" height="18" rx="2"/><path d="M8 7h2M10 11l-2 3h2l-2 3M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-2-2"/></svg>
+          </div>
+          <h3>Şarj İstasyonu</h3>
+          <p>Ev, site ve işyerleri için elektrikli araç şarj istasyonu projesi ve kurulumu.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="hakkimda" class="about">
     <div class="wrap about-grid">
-      <div class="avatar reveal">AS</div>
+      <div class="avatar reveal">EÖ</div>
       <div class="reveal">
         <div class="eyebrow">Hakkımda</div>
-        <h2>Merhaba, ben Adınız Soyadınız 👋</h2>
-        <p>Elektrik mühendisiyim. Yıllardır konut, ticari bina ve sanayi tesislerinin elektrik projelerini çiziyor, hesaplarını yapıyor ve sahada uygulamasını yönetiyorum.</p>
+        <h2>Merhaba, ben Ensar Özsarı 👋</h2>
+        <p>Elektrik mühendisiyim. 2018'de Kocaeli Üniversitesi'nden mezun oldum ve 2019'da AGY Mühendislik'i kurdum. 7 yıldır Manisa ve İzmir'de konut, ticari bina ve sanayi tesislerinin elektrik projelerini çiziyor, hesaplarını yapıyor ve sahada uygulamasını yönetiyorum. Bugüne kadar 1000'den fazla projeyi tamamladım.</p>
         <p>Benim için iyi bir proje; güvenli, yönetmeliğe uygun ve uzun vadede işletme maliyetini düşüren projedir. Her müşteriye işin her aşamasını açıkça anlatırım.</p>
         <div class="chips">
           <span class="chip">AutoCAD</span>
@@ -363,6 +376,8 @@
           <span class="chip">OG / AG</span>
           <span class="chip">Topraklama</span>
           <span class="chip">LED Dönüşüm</span>
+          <span class="chip">GES</span>
+          <span class="chip">Şarj İstasyonu</span>
         </div>
       </div>
     </div>
@@ -371,13 +386,14 @@
   <section id="projeler">
     <div class="wrap">
       <div class="eyebrow reveal">Projeler</div>
-      <h2 class="reveal">Son işlerimden örnekler</h2>
-      <p class="sec-lead reveal">Farklı ölçeklerde, farklı ihtiyaçlara göre tasarlanmış projeler.</p>
+      <h2 class="reveal">Yaptığımız işler</h2>
+      <p class="sec-lead reveal">Manisa ve İzmir genelinde, küçük bir daireden fabrikaya kadar her ölçekte proje ve uygulama.</p>
       <div class="filters reveal">
         <button class="filter on" data-f="hepsi">Hepsi</button>
         <button class="filter" data-f="konut">Konut</button>
         <button class="filter" data-f="ticari">Ticari</button>
         <button class="filter" data-f="sanayi">Sanayi</button>
+        <button class="filter" data-f="enerji">Enerji</button>
       </div>
       <div class="projects">
         <article class="proj reveal" data-k="konut">
@@ -386,53 +402,9 @@
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>
           </div>
           <div class="proj-body">
-            <h3>48 Daireli Site Projesi</h3>
-            <p>İç tesisat, zayıf akım, otopark aydınlatması ve jeneratör beslemesi.</p>
-            <div class="proj-meta"><span>📍 Şehir</span><span>📅 2025</span></div>
-          </div>
-        </article>
-        <article class="proj reveal" data-k="sanayi">
-          <div class="proj-top" style="background:linear-gradient(135deg,var(--purple),var(--blue))">
-            <span class="tag">Sanayi</span>
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 20V9l6 4V9l6 4V4h6v16H2zM6 16h2M11 16h2M16 16h2"/></svg>
-          </div>
-          <div class="proj-body">
-            <h3>Fabrika Kompanzasyonu</h3>
-            <p>Reaktif ceza ödeyen tesise otomatik kompanzasyon panosu; cos φ 0,98'e çıktı.</p>
-            <div class="proj-meta"><span>📍 OSB</span><span>📅 2025</span></div>
-          </div>
-        </article>
-        <article class="proj reveal" data-k="ticari">
-          <div class="proj-top" style="background:linear-gradient(135deg,var(--yellow),var(--orange))">
-            <span class="tag">Ticari</span>
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18l-2-5H5L3 9zM4 9v11h16V9M9 20v-6h6v6"/></svg>
-          </div>
-          <div class="proj-body">
-            <h3>Mağaza LED Dönüşümü</h3>
-            <p>Dialux hesabıyla yeni armatür yerleşimi; aydınlatma enerjisinde %40 tasarruf.</p>
-            <div class="proj-meta"><span>📍 AVM</span><span>📅 2024</span></div>
-          </div>
-        </article>
-        <article class="proj reveal" data-k="ticari">
-          <div class="proj-top" style="background:linear-gradient(135deg,var(--green),var(--blue))">
-            <span class="tag">Ticari</span>
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg>
-          </div>
-          <div class="proj-body">
-            <h3>Ofis Binası Projesi</h3>
-            <p>6 katlı ofis; data altyapısı, yangın algılama ve UPS beslemeli pano tasarımı.</p>
-            <div class="proj-meta"><span>📍 Merkez</span><span>📅 2024</span></div>
-          </div>
-        </article>
-        <article class="proj reveal" data-k="sanayi">
-          <div class="proj-top" style="background:linear-gradient(135deg,var(--pink),var(--purple))">
-            <span class="tag">Sanayi</span>
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-          </div>
-          <div class="proj-body">
-            <h3>Trafo Merkezi</h3>
-            <p>1000 kVA bina tipi trafo merkezi, OG hücreleri ve topraklama projesi.</p>
-            <div class="proj-meta"><span>📍 OSB</span><span>📅 2023</span></div>
+            <h3>Apartman ve Site Projeleri</h3>
+            <p>İç tesisat, zayıf akım, ortak alan ve otopark aydınlatması, sayaç ve pano yerleşimi.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
           </div>
         </article>
         <article class="proj reveal" data-k="konut">
@@ -441,9 +413,53 @@
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11M9 21v-5h6v5"/><circle cx="12" cy="11" r="1.5"/></svg>
           </div>
           <div class="proj-body">
-            <h3>Müstakil Villa</h3>
-            <p>Akıllı ev altyapısı, güneş enerjisi bağlantısı ve bahçe aydınlatması.</p>
-            <div class="proj-meta"><span>📍 Şehir</span><span>📅 2023</span></div>
+            <h3>Müstakil Ev ve Villa</h3>
+            <p>Baştan sona elektrik projesi, akıllı ev altyapısı ve bahçe aydınlatması.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
+        <article class="proj reveal" data-k="ticari">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--yellow),var(--orange))">
+            <span class="tag">Ticari</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18l-2-5H5L3 9zM4 9v11h16V9M9 20v-6h6v6"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Mağaza, Ofis ve İşyerleri</h3>
+            <p>İşyeri elektrik projesi, aydınlatma hesabı, LED dönüşümü ve data altyapısı.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
+        <article class="proj reveal" data-k="sanayi">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--purple),var(--blue))">
+            <span class="tag">Sanayi</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 20V9l6 4V9l6 4V4h6v16H2zM6 16h2M11 16h2M16 16h2"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Fabrika ve Atölyeler</h3>
+            <p>Kuvvet tesisatı, pano tasarımı, kompanzasyon ve topraklama ölçümleri.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
+        <article class="proj reveal" data-k="enerji">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--yellow),var(--green))">
+            <span class="tag">Enerji</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M12 1v1M5.6 3.6l.7.7M18.4 3.6l-.7.7M3 21l3-8h12l3 8H3zM9 13l-1 8M15 13l1 8M4.5 17h15"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Çatı ve Arazi GES</h3>
+            <p>Güneş santrali projesi, panel ve inverter seçimi, kurulum ve bağlantı süreçleri.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
+          </div>
+        </article>
+        <article class="proj reveal" data-k="enerji">
+          <div class="proj-top" style="background:linear-gradient(135deg,var(--green),var(--blue))">
+            <span class="tag">Enerji</span>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="10" height="18" rx="2"/><path d="M8 7h2M10 11l-2 3h2l-2 3M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-2-2"/></svg>
+          </div>
+          <div class="proj-body">
+            <h3>Elektrikli Araç Şarj İstasyonu</h3>
+            <p>Ev, site otoparkı ve işyerleri için şarj istasyonu projesi ve kurulumu.</p>
+            <div class="proj-meta"><span>📍 Manisa · İzmir</span><span>✔ Proje + uygulama</span></div>
           </div>
         </article>
       </div>
@@ -459,26 +475,26 @@
         <div class="tl reveal">
           <h3>💼 Deneyim</h3>
           <div class="tl-item" style="--c:var(--orange)">
-            <div class="tl-date">2021 – Günümüz</div>
-            <h4>Serbest Elektrik Mühendisi</h4>
-            <p>Proje, hesap ve taahhüt işleri; konut, ticari ve sanayi müşterileri.</p>
+            <div class="tl-date">2019 – Günümüz</div>
+            <h4>Kurucu, Elektrik Mühendisi · AGY Mühendislik</h4>
+            <p>Elektrik proje, hesap ve taahhüt işleri; konut, ticari ve sanayi müşterileri.</p>
           </div>
           <div class="tl-item" style="--c:var(--pink)">
-            <div class="tl-date">2017 – 2021</div>
-            <h4>Proje Mühendisi · Firma Adı</h4>
-            <p>OG/AG projeleri, kompanzasyon ve pano tasarımı.</p>
+            <div class="tl-date">7 yılda</div>
+            <h4>1000'den fazla proje</h4>
+            <p>Konut, işyeri, sanayi, güneş enerjisi ve şarj istasyonu projeleri.</p>
           </div>
           <div class="tl-item" style="--c:var(--purple)">
-            <div class="tl-date">2015 – 2017</div>
-            <h4>Saha Mühendisi · Firma Adı</h4>
-            <p>Şantiye elektrik uygulamaları ve ekip yönetimi.</p>
+            <div class="tl-date">Hizmet bölgesi</div>
+            <h4>Manisa ve İzmir</h4>
+            <p>İki ilin tüm ilçelerinde keşif, proje ve uygulama.</p>
           </div>
         </div>
         <div class="tl reveal">
           <h3>🎓 Eğitim &amp; Belgeler</h3>
           <div class="tl-item" style="--c:var(--blue)">
-            <div class="tl-date">2011 – 2015</div>
-            <h4>Elektrik Mühendisliği · Üniversite Adı</h4>
+            <div class="tl-date">2018 mezunu</div>
+            <h4>Elektrik Mühendisliği · Kocaeli Üniversitesi</h4>
             <p>Lisans derecesi.</p>
           </div>
           <div class="tl-item" style="--c:var(--green)">
@@ -504,21 +520,21 @@
           <h2>Projenizi konuşalım ⚡</h2>
           <p style="color:var(--muted);margin:0">Kısaca anlatın, en geç bir iş günü içinde dönüş yapayım. Keşif ücretsizdir.</p>
           <ul class="contact-list">
-            <li><a href="tel:+905000000000">
+            <li><a href="tel:+905423214523">
               <span class="icon" style="background:var(--orange)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-              <span>0500 000 00 00<small>Telefon</small></span>
+              <span>0542 321 45 23<small>Telefon</small></span>
             </a></li>
-            <li><a href="https://wa.me/905000000000" target="_blank" rel="noopener">
+            <li><a href="https://wa.me/905423214523" target="_blank" rel="noopener">
               <span class="icon" style="background:var(--green)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
               <span>WhatsApp'tan yazın<small>Hızlı yanıt</small></span>
             </a></li>
-            <li><a href="mailto:ornek@eposta.com">
+            <li><a href="mailto:agyenerjimuhendislik@gmail.com">
               <span class="icon" style="background:var(--purple)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
-              <span>ornek@eposta.com<small>E-posta</small></span>
+              <span>agyenerjimuhendislik@gmail.com<small>E-posta</small></span>
             </a></li>
             <li><div>
               <span class="icon" style="background:var(--pink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-              <span>Şehir, Türkiye<small>Hizmet bölgesi</small></span>
+              <span>Manisa ve İzmir<small>Tüm ilçeler</small></span>
             </div></li>
           </ul>
         </div>
@@ -535,6 +551,8 @@
               <option>Aydınlatma hesabı</option>
               <option>Tesisat &amp; taahhüt</option>
               <option>Topraklama &amp; ölçüm</option>
+              <option>Güneş enerjisi (GES)</option>
+              <option>Şarj istasyonu</option>
               <option>Diğer</option>
             </select>
           </label>
@@ -547,7 +565,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yil"></span> Adınız Soyadınız · Elektrik Proje ve Tesisat</div>
+  <div class="wrap">© <span id="yil"></span> AGY Mühendislik · Ensar Özsarı, Elektrik Mühendisi</div>
 </footer>
 
 <script>
@@ -582,7 +600,7 @@
     const start = performance.now();
     const step = now => {
       const t = Math.min((now - start) / 1400, 1);
-      el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3))) + (t === 1 && end !== 100 ? '+' : '');
+      el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3))) + (t === 1 ? '+' : '');
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -603,7 +621,7 @@
     const d = new FormData(e.target);
     const konu = 'Teklif talebi: ' + d.get('hizmet');
     const govde = `Ad: ${d.get('ad')}\nTelefon: ${d.get('tel')}\nHizmet: ${d.get('hizmet')}\n\n${d.get('mesaj')}`;
-    location.href = 'mailto:ornek@eposta.com?subject=' + encodeURIComponent(konu) + '&body=' + encodeURIComponent(govde);
+    location.href = 'mailto:agyenerjimuhendislik@gmail.com?subject=' + encodeURIComponent(konu) + '&body=' + encodeURIComponent(govde);
   });
 
   document.getElementById('yil').textContent = new Date().getFullYear();
